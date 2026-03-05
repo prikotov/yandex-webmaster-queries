@@ -66,8 +66,8 @@ php .opencode/skills/yandex-webmaster-queries/queries.php -l 10 2025-01-01 2025-
 ## Результат
 
 Отчёты сохраняются в `yandex_webmaster_reports/YYYY-MM-DD/`:
-- `queries_YYYY-MM-DD_HH-MM-SS.csv`
-- `queries_YYYY-MM-DD_HH-MM-SS.md`
+- `yandex_webmaster_queries_YYYY-MM-DD_HH-MM-SS.csv`
+- `yandex_webmaster_queries_YYYY-MM-DD_HH-MM-SS.md`
 
 ### Поля в отчете
 

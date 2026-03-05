@@ -51,8 +51,8 @@ php .opencode/skills/yandex-webmaster-queries/queries.php -s position -o asc -l 
 
 ## Результат
 
-`webmaster_reports/YYYY-MM-DD/`:
-- `queries_YYYY-MM-DD_HH-MM-SS.csv` / `.md`
+`yandex_webmaster_reports/YYYY-MM-DD/`:
+- `yandex_webmaster_queries_YYYY-MM-DD_HH-MM-SS.csv` / `.md`
 
 ### Поля в отчете
 

@@ -107,10 +107,10 @@ if ($args['limit'] !== null) {
 }
 echo "\n";
 
-WebmasterClient::saveCsv($queries, "$reportPath/queries_$timestamp.csv");
-WebmasterClient::saveMarkdown($queries, "$reportPath/queries_$timestamp.md", "Поисковые запросы", $args['dateFrom'], $args['dateTo']);
+WebmasterClient::saveCsv($queries, "$reportPath/yandex_webmaster_queries_$timestamp.csv");
+WebmasterClient::saveMarkdown($queries, "$reportPath/yandex_webmaster_queries_$timestamp.md", "Поисковые запросы", $args['dateFrom'], $args['dateTo']);
 
 echo "  Создано файлов:\n";
-echo "    - queries_$timestamp.csv\n";
-echo "    - queries_$timestamp.md\n";
+echo "    - yandex_webmaster_queries_$timestamp.csv\n";
+echo "    - yandex_webmaster_queries_$timestamp.md\n";
 echo "\n  Найдено запросов: " . count($queries) . "\n";
