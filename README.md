@@ -9,11 +9,25 @@ Skill для получения популярных поисковых запр
 
 ## Установка
 
+### 1. Установите yandex-webmaster-core
+
 ```bash
-git clone https://github.com/prikotov/yandex-webmaster-queries.git .opencode/skills/yandex-webmaster-queries
+cd /путь/к/проекту
+mkdir -p .opencode/skills
+cd .opencode/skills
+git clone https://github.com/prikotov/yandex-webmaster-core.git
 ```
 
-Требуется установленный [yandex-webmaster-core](https://github.com/prikotov/yandex-webmaster-core).
+### 2. Установите yandex-webmaster-queries
+
+```bash
+cd .opencode/skills
+git clone https://github.com/prikotov/yandex-webmaster-queries.git
+```
+
+### 3. Настройте конфигурацию
+
+Создайте `yandex_webmaster_config.json` в корне проекта (см. [yandex-webmaster-core](https://github.com/prikotov/yandex-webmaster-core)).
 
 ## Использование
 
