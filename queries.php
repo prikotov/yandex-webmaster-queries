@@ -98,7 +98,7 @@ $reportPath = WebmasterClient::createReportDir();
 $timestamp = WebmasterClient::getFileTimestamp();
 $hostId = $client->getHostId();
 
-echo "\n  Папка отчета: webmaster_reports/" . basename($reportPath) . "\n";
+echo "\n  Папка отчета: yandex_webmaster_reports/" . basename($reportPath) . "\n";
 echo "  Сайт: $hostId\n";
 echo "  Период: {$args['dateFrom']} — {$args['dateTo']}\n";
 echo "  Сортировка: {$args['sort']} ({$args['order']})\n";
