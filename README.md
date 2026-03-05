@@ -39,10 +39,10 @@ php .opencode/skills/yandex-webmaster-queries/queries.php [опции] [дата
 
 | Опция | Сокращение | Описание | По умолчанию |
 |-------|------------|----------|--------------|
+| `--site` | | Имя сайта из конфига | default_host |
 | `--sort` | `-s` | Поле сортировки: `impressions`, `clicks`, `ctr`, `position` | `impressions` |
 | `--order` | `-o` | Направление: `asc`, `desc` | `desc` |
 | `--limit` | `-l` | Лимит записей | все |
-| `--host` | `-h` | ID сайта (например, `https:site.ru:443`) | из конфига |
 
 ### Примеры
 
@@ -50,8 +50,8 @@ php .opencode/skills/yandex-webmaster-queries/queries.php [опции] [дата
 # Топ-10 запросов по показам
 php .opencode/skills/yandex-webmaster-queries/queries.php -l 10
 
-# Топ-20 запросов для конкретного сайта
-php .opencode/skills/yandex-webmaster-queries/queries.php -l 20 --host "https:example.com:443"
+# Для конкретного сайта
+php .opencode/skills/yandex-webmaster-queries/queries.php --site task.ai-aid.pro -l 20
 
 # Запросы с лучшим CTR
 php .opencode/skills/yandex-webmaster-queries/queries.php -s ctr -l 15

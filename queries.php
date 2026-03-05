@@ -13,7 +13,7 @@ function parseArgs(array $argv): array
         'sort' => 'impressions',
         'order' => 'desc',
         'limit' => null,
-        'host' => null
+        'site' => null
     ];
     
     $i = 1;
@@ -26,8 +26,8 @@ function parseArgs(array $argv): array
             $result['order'] = $argv[++$i];
         } elseif (in_array($arg, ['--limit', '-l']) && isset($argv[$i + 1])) {
             $result['limit'] = (int)$argv[++$i];
-        } elseif (in_array($arg, ['--host', '-h']) && isset($argv[$i + 1])) {
-            $result['host'] = $argv[++$i];
+        } elseif (in_array($arg, ['--site']) && isset($argv[$i + 1])) {
+            $result['site'] = $argv[++$i];
         } elseif (!str_starts_with($arg, '-') && strlen($arg) === 10 && strpos($arg, '-') !== false) {
             if (!$result['dateFrom'] || $result['dateFrom'] === date('Y-m-d', strtotime('-30 days'))) {
                 $result['dateFrom'] = $arg;
@@ -54,13 +54,13 @@ function getOrderBy(string $sort): string
 }
 
 $args = parseArgs($argv);
-
-$hostId = $args['host'] ?? $config['host_id'] ?? null;
+$hostId = WebmasterClient::getHostIdFromConfig($config, $args['site']);
 
 $client = new WebmasterClient(
     $config['client_id'],
     $config['client_secret'],
-    $hostId
+    $hostId,
+    $args['site']
 );
 
 $orderBy = getOrderBy($args['sort']);
@@ -96,10 +96,11 @@ if ($args['limit'] !== null && $args['limit'] > 0) {
 
 $reportPath = WebmasterClient::createReportDir();
 $timestamp = WebmasterClient::getFileTimestamp();
-$hostId = $client->getHostId();
+$actualHostId = $client->getHostId();
+$displayName = $args['site'] ?? ($config['default_host'] ?? $actualHostId);
 
 echo "\n  Папка отчета: yandex_webmaster_reports/" . basename($reportPath) . "\n";
-echo "  Сайт: $hostId\n";
+echo "  Сайт: $displayName\n";
 echo "  Период: {$args['dateFrom']} — {$args['dateTo']}\n";
 echo "  Сортировка: {$args['sort']} ({$args['order']})\n";
 if ($args['limit'] !== null) {

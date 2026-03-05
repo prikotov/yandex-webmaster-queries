@@ -25,10 +25,10 @@ php .opencode/skills/yandex-webmaster-queries/queries.php [опции] [дата
 
 | Опция | Сокращение | Описание | Значения | По умолчанию |
 |-------|------------|----------|----------|--------------|
+| `--site` | | Имя сайта из конфига | имя сайта | default_host |
 | `--sort` | `-s` | Поле сортировки | `impressions`, `clicks`, `ctr`, `position` | `impressions` |
 | `--order` | `-o` | Направление сортировки | `asc`, `desc` | `desc` |
 | `--limit` | `-l` | Лимит записей | число | все записи |
-| `--host` | `-h` | ID сайта | `https:site.ru:443` | из конфига |
 
 ### Примеры
 
@@ -36,8 +36,8 @@ php .opencode/skills/yandex-webmaster-queries/queries.php [опции] [дата
 # Топ-10 запросов по показам (сайт из конфига)
 php .opencode/skills/yandex-webmaster-queries/queries.php -l 10
 
-# Топ-20 запросов для конкретного сайта
-php .opencode/skills/yandex-webmaster-queries/queries.php -l 20 --host "https:task.ai-aid.pro:443"
+# Для конкретного сайта
+php .opencode/skills/yandex-webmaster-queries/queries.php --site task.ai-aid.pro -l 20
 
 # Топ-20 запросов по кликам
 php .opencode/skills/yandex-webmaster-queries/queries.php -s clicks -l 20
